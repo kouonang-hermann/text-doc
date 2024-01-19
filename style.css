@@ -1,0 +1,352 @@
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+h1, h2, h3, p {
+    margin: 0;
+    padding: 0;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+
+header {
+    height: 15vh;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    border-bottom: 1px solid gray;
+}
+
+#primary-nav {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    justify-content: flex-start;
+    width: 100%;
+    gap: 2em;
+    height: 70%;
+    padding: 0 1em;
+}
+
+/* ----------------------------------------------- modification ici */
+#nav-logo {
+    margin-right: 3em;
+    width: 10%;
+    height: 100%;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+}
+
+#nav-logo > img {
+    height: 70%;
+    aspect-ratio: 1/1;
+}
+/* ------------------------------------------------- fin modif */
+
+#nav-links {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    list-style: none;
+    gap: 1em;
+    width: 40%;
+}
+
+
+#nav-links > li > a {
+    font-weight: bold;
+    transition: 0.3s ease;
+}
+
+#nav-links > li:hover > a {
+    color: #18c460;
+}
+
+
+#tool-block {
+    width: 20%;
+    height: 50%;
+    border: 1px solid rgba(44, 43, 43, 0.301);
+    border-radius: 100px;
+}
+
+#tool-block > input {
+    height: 100%;
+    border-radius: 100px 0 0 100px;
+    border: none;
+    width: 83%;
+    padding: 0 1.3em;
+    outline: none;
+}
+
+#tool-block > #search-btn {
+    width: 15%;
+    height: 100%;
+    border-radius: 0 100px 100px 0;
+    border: none;
+}
+
+#account-block {
+    display: flex;
+    justify-content: flex-end;
+    flex-direction: row;
+    align-items: center;
+    width: 30%;
+}
+
+#secondary-nav {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    width: 100%;
+    gap: 1em;
+    height: 30%;
+    background-color: rgb(14, 187, 240);
+    color: white;
+    padding: 0 1em 0 0;
+    font-size: 0.7em;
+    justify-content: space space-evenly;
+}
+
+#secondary-nav > button {
+    background-color: rgb(14, 187, 240);
+    color: white;
+    border: none;
+    font-size: 1.5em;
+    height: 100%;
+    padding: 0 1em;
+}
+
+#secondary-nav > button:hover {
+    background-color: #18c460;
+}
+
+
+#language-links {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    list-style: none;
+    height: 100%;
+}
+
+#language-links > li {
+    height: 100%;
+    padding: 0 1em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* ------------ nouveau code */
+    transition: 0.3s ease;
+}
+
+#language-links > li:hover {
+    background-color: #18c460;
+}
+
+
+/* ------------------------------------ MAIN ------------------------------------ */
+main {
+    height: 85vh;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #f4f4f4;
+}
+
+/* -------------------- Modification ici */
+#sidebar {
+    background-color: white;
+    height: 100%;
+    display: none;
+    z-index: 100;
+    overflow-y: scroll;
+}
+
+
+#sidebar.visible-side {
+    width: 20%;
+    display: flex;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    gap: 1em;
+    align-items: flex-start;
+    box-shadow: 1px 0px 5px 1px #5d5d5d43;
+}
+
+#sidebar-header {
+    padding: 0.5em 0 0 2em;
+    color: rgb(154, 153, 153);
+    font-weight: 100;
+    font-size: 1em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(240, 14, 63);
+}
+
+#sidebar-header > h3 {
+    font-weight: 400;
+}
+
+#sidebar-content {
+    width: 100%;
+    height: fit-content;
+}
+
+.content-group {
+    width: 100%;
+}
+
+.content-group button {
+    cursor: pointer;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding: 0.7em 1em 0.7em 2em;
+    background-color: white;
+    border: none;
+    font-weight: 500;
+}
+
+.content-group button:hover {
+    background-color: rgba(190, 237, 220, 0.527);
+}
+
+.content-group.group-opened > .content-head {
+    position: relative;
+    color: #14af6e;
+}
+.content-group.group-opened > .content-head::before {
+    content: "";
+    height: 100%;
+    width: 7px;
+    background-color: #14af6e;
+    position: absolute;
+    top: 0;
+    left: 0;
+    border-radius: 0 5px 5px 0;
+}
+
+.content-head > span {
+    display: flex;
+    align-items: center;
+    gap: 1em;
+}
+
+.content-item {
+    padding-left: 4em !important;
+    transition: 1s ease;
+}
+
+.content-item.closed-item {
+    display: none;
+}
+
+/* --------------------------------- fin modification */
+
+#dashboard {
+    width: 80%;
+    height: 100%;
+    background-color: #f4f4f4;
+    /* nouveau code */
+    display: flex;
+    flex-direction: column;
+    padding: 2em;
+    gap: 1em;
+}
+
+#dashboard-header {
+    width: 100%;
+    height: 10%;
+    display: flex;
+    justify-content: space-between;
+}
+
+#insights-board {
+    width: 100%;
+    height: 20%;
+    display: flex;
+    justify-content: space-evenly;
+    flex-direction: row;
+    align-items: center;
+    gap: 1em;
+}
+
+.insight-card {
+    height: 100%;
+    width: 25%;
+    border-radius: 5px;
+    box-shadow: 0px 1px 5px 1px #5959591f;
+    background-color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1em 2em;
+}
+
+.insight-card > .insight-info {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5em;
+    align-items: flex-start;
+}
+
+.insight-card > .insight-info > p.insight-title {
+    font-size: 0.8em;
+    color: #80808094;
+}
+
+.insight-card > .insight-info > p.insight-value {
+    font-size: 1.3em;
+    font-weight: bold;
+    color: black
+}
+
+.insight-card > .insight-icon {
+    height: 80%;
+    aspect-ratio: 1/1;
+    background-color: #23d3d31e;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5px;
+}
+
+.insight-card > .insight-icon > img {
+    height: inherit;
+    width: inherit;
+}
+
+
+
+#stats-board {
+    width: 100%;
+    height: 75%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+    gap: 1em;
+}
+
+#stats-board > .stat-card {
+    height: 100%;
+    width: 50%;
+    border-radius: 5px;
+    box-shadow: 0px 1px 5px 1px #5959591f;
+    background-color: white;
+    padding: 0.7em;
+}
